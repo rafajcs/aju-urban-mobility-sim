@@ -1,0 +1,119 @@
+# ============================================================
+# Python
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging
+*.egg-info/
+dist/
+build/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+
+# ============================================================
+# IDE / Editor
+# ============================================================
+
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+
+# ============================================================
+# Environment / Secrets
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+
+# ============================================================
+# Logs
+# ============================================================
+
+*.log
+logs/
+
+
+# ============================================================
+# SUMO generated files
+# ============================================================
+
+# Generated networks
+*.net.xml
+
+# Generated routes / trips
+*.rou.xml
+*.trips.xml
+
+# SUMO output
+*.tripinfo.xml
+*.fcd.xml
+*.emission.xml
+*.summary.xml
+*.stat.xml
+*.vehroute.xml
+
+# SUMO temporary / additional generated files
+*.conn.xml
+*.nod.xml
+*.edg.xml
+
+# SUMO GUI / temporary files
+*.netccfg
+*.sumocfg.tmp
+
+
+# ============================================================
+# Raw geographic data
+# ============================================================
+
+# OpenStreetMap raw downloads
+data/osm/raw/*
+!data/osm/raw/.gitkeep
+
+
+# ============================================================
+# Generated data
+# ============================================================
+
+# Generated experiment results
+results/*
+
+# Keep directory structure
+!results/.gitkeep
+
+
+# Generated plots
+plots/
+figures/generated/
+
+
+# ============================================================
+# Temporary files
+# ============================================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*~

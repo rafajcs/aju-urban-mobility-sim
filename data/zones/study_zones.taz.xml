@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tazs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/taz_file.xsd">
+    <!-- 
+      Define the Conjunto Augusto Franco origin zone. 
+      Add the specific SUMO edge IDs as a space-separated list in the 'edges' attribute.
+    -->
+    <taz id="augusto_franco" edges="" />
+
+    <!-- 
+      Define the UFS São Cristóvão destination zone. 
+      Add the specific SUMO edge IDs as a space-separated list in the 'edges' attribute.
+    -->
+    <taz id="ufs" edges="" />
+</tazs>
