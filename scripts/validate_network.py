@@ -41,8 +41,17 @@ def main():
     try:
         import sumolib
     except ImportError:
-        print("Error: sumolib is not installed.")
-        sys.exit(1)
+        if "SUMO_HOME" in os.environ:
+            sys.path.append(os.path.join(os.environ["SUMO_HOME"], "tools"))
+            try:
+                import sumolib
+            except ImportError:
+                print("Error: sumolib is not installed and could not be found in SUMO_HOME/tools.")
+                sys.exit(1)
+        else:
+            print("Error: sumolib is not installed and SUMO_HOME is not set.")
+            print("Lembre-se de ativar o ambiente virtual: .venv\\Scripts\\activate")
+            sys.exit(1)
         
     print(f"Reading network from {args.net_file}...")
     try:

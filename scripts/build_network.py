@@ -40,7 +40,21 @@ def main():
     
     try:
         # Check if netconvert is in PATH
-        import sumolib
+        try:
+            import sumolib
+        except ImportError:
+            if "SUMO_HOME" in os.environ:
+                sys.path.append(os.path.join(os.environ["SUMO_HOME"], "tools"))
+                try:
+                    import sumolib
+                except ImportError:
+                    print("Error: sumolib is not installed and could not be found in SUMO_HOME/tools.")
+                    sys.exit(1)
+            else:
+                print("Error: sumolib is not installed and SUMO_HOME is not set.")
+                print("Lembre-se de ativar o ambiente virtual: .venv\\Scripts\\activate")
+                sys.exit(1)
+                
         netconvert_binary = sumolib.checkBinary("netconvert")
         cmd[0] = netconvert_binary
         

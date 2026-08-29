@@ -24,6 +24,12 @@ def main():
             print("Lembre-se de ativar o ambiente virtual: .venv\\Scripts\\activate")
             sys.exit(1)
         
+    if not os.path.exists(args.net_file):
+        print(f"Error: O arquivo de rede '{args.net_file}' não foi encontrado.")
+        print("Você precisa construir a rede primeiro executando:")
+        print("python scripts/build_network.py")
+        sys.exit(1)
+        
     try:
         net = sumolib.net.readNet(args.net_file)
     except Exception as e:
