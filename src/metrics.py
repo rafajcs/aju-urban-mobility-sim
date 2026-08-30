@@ -70,6 +70,12 @@ class MetricsCollector:
         
         if os.path.exists(tripinfo_path):
             try:
+                with open(tripinfo_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                if '</tripinfos>' not in content[-50:]:
+                    with open(tripinfo_path, 'a', encoding='utf-8') as f:
+                        f.write('</tripinfos>\n')
+                        
                 tree = ET.parse(tripinfo_path)
                 root = tree.getroot()
                 
@@ -78,8 +84,8 @@ class MetricsCollector:
                     total_waiting_time += float(tripinfo.get('waitingTime', 0.0))
                     total_time_loss += float(tripinfo.get('timeLoss', 0.0))
                     total_duration += float(tripinfo.get('duration', 0.0))
-            except ET.ParseError:
-                print(f"Error parsing {tripinfo_path}")
+            except Exception as e:
+                print(f"Error parsing {tripinfo_path}: {e}")
         
         # Generate summary
         summary = {

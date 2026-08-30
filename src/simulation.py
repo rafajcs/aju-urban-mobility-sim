@@ -33,7 +33,8 @@ class SimulationRunner:
             "-c", self.sumocfg_path,
             "--seed", str(self.seed),
             "--waiting-time-memory", "10000", # Required to keep track of waiting time
-            "--time-to-teleport", "-1" # Disable teleporting for strict routing/waiting evaluation
+            "--time-to-teleport", "300", # Teleport vehicles stuck for 5 mins to prevent infinite gridlocks
+            "--ignore-route-errors", "true" # Discard unroutable vehicles instead of crashing
         ]
         
         if self.output_dir:

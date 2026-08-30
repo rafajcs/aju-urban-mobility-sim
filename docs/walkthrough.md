@@ -131,9 +131,29 @@ The simulation runner orchestrates TraCI and saves the outputs in a structured d
 ## 10. Results
 
 The output directory contains three main files:
-- `step_metrics.csv`: Instantaneous macroscopic metrics recorded at every simulation step (e.g., number of currently running vehicles, average instantaneous speed).
-- `tripinfo.xml`: SUMO's native output containing mathematically rigorous cumulative metrics for every individual completed trip (duration, time loss, waiting time).
-- `summary.json`: An aggregated summary parsing the tripinfo file to provide network-wide final statistics (e.g., total waiting time, average waiting time per completed trip).
+- `step_metrics.csv`: Instantaneous macroscopic metrics recorded at every simulation step.
+- `tripinfo.xml`: SUMO's native output containing cumulative metrics.
+- `summary.json`: An aggregated summary parsing the tripinfo file.
+
+**Sample Baseline Results (1000 Trips):**
+```json
+{
+  "total_steps": 5171,
+  "max_running_vehicles": 296,
+  "total_departed": 1000,
+  "total_arrived": 999,
+  "total_teleports": 173,
+  "overall_avg_speed": 10.25,
+  "completed_trips": 1000,
+  "total_waiting_time": 224728.0,
+  "total_time_loss": 339711.0,
+  "avg_waiting_time": 224.72,
+  "avg_trip_duration": 991.74
+}
+```
+
+> [!NOTE]
+> The `total_teleports` metric (approx. 17% in this raw run) indicates vehicles that encountered severe gridlocks—common in raw, uncalibrated OSM networks—and were teleported after 5 minutes of waiting to allow the simulation to proceed.
 
 ## 11. Reproducibility
 

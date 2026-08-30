@@ -1,14 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <tazs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/taz_file.xsd">
-    <!-- 
-      Define the Conjunto Augusto Franco origin zone. 
-      Add the specific SUMO edge IDs as a space-separated list in the 'edges' attribute.
-    -->
-    <taz id="augusto_franco" edges="" />
+    
+    <taz id="augusto_franco" edges="178165291#0 178165291#1 178165291#11 178165291#12      178165291#13 178165291#14 178165291#15      178165291#16 178165291#2 178165291#3 178165291#4      178165291#5 178165291#6 178165291#7 178165291#8      178165291#9 84074413#0 84074413#1 84074413#10 84074413#11      84074413#12 84074413#13 84074413#14 84074413#15      84074413#16 84074413#17 84074413#2 84074413#3      84074413#4 84074413#5 84074413#6 84074413#7      84074413#8 84074413#9" />
 
-    <!-- 
-      Define the UFS São Cristóvão destination zone. 
-      Add the specific SUMO edge IDs as a space-separated list in the 'edges' attribute.
-    -->
-    <taz id="ufs" edges="" />
+    
+    <taz id="ufs" edges="164258583 385870741#0 385870741#1 385870741#10 385870741#11 385870741#12 385870741#13 385870741#2 385870741#3 385870741#4 385870741#5 385870741#6 385870741#7 385870741#8 97047809#1 97047809#2 97047809#3 97047809#4 97047810#0 97047810#1 97047810#2 97047810#3 97047810#4 97047810#5 97047810#6 97047810#7 97047810#8 97047810#9" />
 </tazs>

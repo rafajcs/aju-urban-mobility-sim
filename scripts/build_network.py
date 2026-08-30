@@ -35,7 +35,8 @@ def main():
         "--tls.discard-simple",
         "--tls.join",
         "--no-turnarounds",
-        "--remove-edges.isolated"
+        "--remove-edges.isolated",
+        "--output.street-names", "true"
     ]
     
     try:

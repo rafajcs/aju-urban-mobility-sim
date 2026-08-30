@@ -1,5 +1,6 @@
 import sys
 import argparse
+import os
 
 def main():
     parser = argparse.ArgumentParser(description="Inspect a SUMO network to identify edge IDs for zones.")
@@ -43,7 +44,8 @@ def main():
         matched_edges = []
         for e in edges:
             name = e.getName()
-            if name and search_lower in name.lower():
+            edge_id = e.getID()
+            if (name and search_lower in name.lower()) or search_lower in edge_id.lower():
                 matched_edges.append(e)
         
         print(f"Found {len(matched_edges)} edges matching '{args.search}'.")
@@ -58,7 +60,13 @@ def main():
         name = e.getName() or "Unknown"
         speed = e.getSpeed()
         lanes = e.getLanes()
-        allowed = ",".join(lanes[0].getAllowed()) if lanes else "all"
+        try:
+            allowed = ",".join(lanes[0].getPermissions()) if lanes else "all"
+        except AttributeError:
+            try:
+                allowed = ",".join(lanes[0].getAllowed()) if lanes else "all"
+            except AttributeError:
+                allowed = "unknown"
         shape = e.getShape()
         
         print(f"ID: {e.getID()}")
